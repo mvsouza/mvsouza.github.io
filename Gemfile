@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-
-gem 'github-pages'
+gem 'github-pages', 28
 gem 'jekyll'
 gem 'kramdown'
 gem 'coderay'
