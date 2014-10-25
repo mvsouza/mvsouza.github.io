@@ -1,13 +1,13 @@
 {
-  "name": "hpstr-theme",
-  "author": "Michael Rose <michael@mademistakes.com>",
-  "homepage": "http://mmistakes.github.io/hpstr-jekyll-theme/",
+  "name": "Matheus Valiente Souza",
+  "author": "Matheus Valiente Souza <matheusvalientesouza@hotmail.com>",
+  "homepage": "http://mvsouza.github.io/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mmistakes/hpstr-jekyll-theme.git"
+    "url": "git://github.com/mvsouza/mvosuza.git"
   },
   "bugs": {
-    "url": "https://github.com/mmistakes/hpstr-jekyll-theme/issues"
+    "url": "https://github.com/mvosuza/mvosuza/issues"
   },
   "engines": {
     "node": ">= 0.10.0"
