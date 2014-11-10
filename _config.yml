@@ -4,7 +4,7 @@ disqus_shortname: mvsouza
 reading_time:     true
 words_per_minute: 200
 #Your site's domain goes here. Leave localhost server or blank when working locally.
-url:              
+url: http://mvsouza.com             
 
 # Owner/author information
 owner:
@@ -17,7 +17,7 @@ owner:
   facebook:       matheus.valientesouza
   github:         mvsouza
   stackexchange:  449767
-  linkedin:       matheus.souza
+  linkedin:       mvsouza
   coderbits:      matheusvsouza
   #instagram:      dfsfd
   #flickr:         fsdsdf
@@ -30,7 +30,7 @@ owner:
 #background: abstract-1.jpg
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   3212323123123
+google_analytics:   UA-56576468-1
 google_verify:      2121122112
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         32312321312213
