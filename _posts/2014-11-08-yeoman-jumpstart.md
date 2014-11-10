@@ -7,8 +7,8 @@ image:
   feature: article-2321142-19AE06ED000005DC-80_964x641.jpg
   credit: Dailymail
   creditlink: http://www.dailymail.co.uk/
-comments: 
-share: 
+comments: true
+share: true
 ---
 Before the good part, let me briefly introduce to you Yeoman, or just skip to the [good part](#letsgetdowntoit).
 
