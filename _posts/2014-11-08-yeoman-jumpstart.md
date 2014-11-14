@@ -10,7 +10,10 @@ image:
 comments: true
 share: true
 ---
-Before the good part, let me briefly introduce to you Yeoman, or just skip to the [good part](#letsgetdowntoit).
+
+In this jump start we gonna learn to create a angular directive with Yeoman
+
+But before the good part, let me briefly introduce to you Yeoman, or just skip to the [good part](#letsgetdowntoit).
 
 ##What'a hell?
 
@@ -31,7 +34,7 @@ Actually, this is pretty neat, because you can easily set up a project with a wh
 There fore, it increases your productivity and, if use it the right way, software quality, by adding tools that by yourself wouldn't be able to set in a proper time.
 
 <p style="text-align:center;">
-	<video  alt="Ain't got time for that" src="{{ site.url }}/images/aintgottimeforthat.webm" autoplay="autoplay" loop="loop"> 
+	<video style="width: 275px;" alt="Ain't got time for that" src="{{ site.url }}/images/aintgottimeforthat.webm" autoplay="autoplay" loop="loop"> 
    Your browser does not implement html5 video. 
 	</video>
 </p>
@@ -40,21 +43,35 @@ It has already set of generators, that cover a good variety of modern webapp pro
 
 In order to cover these needs, it may generate bower and npm package references and Grunt or Gult files for running tasks.
 
+<!-- more -->
+
 <span name="letsgetdowntoit"></span>
 
 ##\#LetsGetDownToIt
 
-But we need some stuff fist:
+We need some stuff fist:
 
 * Install [NPM](https://www.npmjs.org/), [nodejs](http://nodejs.org/) package manager
 * And them Yeoman itself.
 
-{% highlight yaml %}
+{% highlight bash %}
 npm install -g yo
 {% endhighlight %}
 
 <p alt="Ain't got time for that" style="text-align:center;">
-	<video  src="{{ site.url }}/images/lonely_island_michael_bolton_jack_sparrow_back_to_.webm" autoplay="autoplay" loop="loop"> 
+	<video style="width: 275px;" src="{{ site.url }}/images/lonely_island_michael_bolton_jack_sparrow_back_to_.webm" autoplay="autoplay" loop="loop"> 
    Your browser does not implement html5 video. 
 	</video>
 </p>
+
+Now that we are good to go, download the angular directives generator for Yeoman.
+
+{% highlight bash %}
+npm generator-angular-directive -g
+{% endhighlight %}
+
+The npm packages with "generator-" prefix are yo templates. To run ir just loose the prefix and pass it to the Yeomann
+
+{% highlight bash %}
+yo angular directive
+{% endhighlight %}
