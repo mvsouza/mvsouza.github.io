@@ -4747,6 +4747,11 @@ body {
   overflow: hidden;
 }
 
+.entry-header#particles-js canvas {
+  position: absolute;
+  top: 0;
+}
+
 .header-title {
   margin: 30px 0 0;
   text-align: center;
