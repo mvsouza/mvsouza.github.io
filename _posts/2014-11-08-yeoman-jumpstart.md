@@ -64,14 +64,33 @@ npm install -g yo
 	</video>
 </p>
 
-Now that we are good to go, download the angular directives generator for Yeoman.
+Now that we are good to go, we need to download the angular directives generator for Yeoman.
+
+You can find generators by searching in npm by packages with the prefix "generator", like that:
 
 {% highlight bash %}
-npm generator-angular-directive -g
+npm serach generator WhaterverYouLike
 {% endhighlight %}
 
-The npm packages with "generator-" prefix are yo templates. To run ir just loose the prefix and pass it to the Yeomann
+In this case we will need the angular directive, so we like this:
 
 {% highlight bash %}
-yo angular directive
+npm serach generator directive
 {% endhighlight %}
+
+With the package name in hand we install it.
+
+{% highlight bash %}
+npm install generator-angular-directive -g
+{% endhighlight %}
+
+The npm packages with "generator-" prefix stands for yo templates. To run the recently added generator, we just need loose the prefix and pass it to the Yeomann generate it. Before this ensure that you are in the project folder.
+
+{% highlight bash %}
+mkdir ng-yomanDirective
+cd ng-yomanDirective
+yo angular-directive
+{% endhighlight %}
+
+Now that the magic happens! The Yeomann gladfully will ask some setting to generate in a more convenient way.
+
