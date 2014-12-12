@@ -47,7 +47,7 @@ bing_verify:         32312321312213
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/Sao_Paulo
 future:      true
-highlighter: true
+highlighter: rouge
 markdown: kramdown
 permalink: pretty
 
