@@ -157,8 +157,9 @@ reverseGeocodeModule.service('OpenCageService', [ '$http','GeoAPIConstants',
 <!---
 but the analysis of the results were quite disapoiting
 
-##Next experiment
-
 -->
+##Next experiments
 
+The chosen API is running in beta version, so considered it risky. 
+In order to mitigate it, the next step would be try the Twofishes solution, which opencage uses, to evaluate it as an alternative.
 
