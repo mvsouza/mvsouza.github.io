@@ -399,7 +399,7 @@ pre {
 }
 
 pre::-webkit-scrollbar {
-  height: 12px;
+  height: 8px;
   background-color: #34362e;
   border-radius: 0 0 4px 4px;
 }

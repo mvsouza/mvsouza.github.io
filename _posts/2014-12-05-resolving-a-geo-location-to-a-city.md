@@ -34,26 +34,131 @@ As an alternative I've chosen to test the Mapbox api, that we already have an ac
 
 In oder to develop test the APIs, I've coded an Angular Webapp  using a template from Yeoman.
 
+##Implementation
+
 Then I develop a service that would use all those APIs.
 
 To configure the service I've added constant to the angular module as follow. 
 
 {% highlight js %}
-
-geocodeReverseModule.constant('GeoAPIConstants', {
+reverseGeocodeModule.constant('GeoAPIConstants', {
     mapBoxId: 'xxxxxx',
     geonameId: 'xxxxxx',
     openCage: 'xxxxxx'
   });
-
 {% endhighlight %}
 
-but the analysis of the results were quite disapoiting
+When I developed the services, I used these constants to identify the environment configurations, so I don't need to peek on every file to change my access accounts.   
+
+Let me show the services.
+
+###Mapbox
+
+The Mapbox WEB API has [this reverse geocode call](http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/-73.989,40.733.json).
+
+
+{% highlight js %}
+reverseGeocodeModule.service('MapboxService', [ '$http','GeoAPIConstants',
+  function($http,GeoAPIConstants){
+    var self = this;
+    var urls = {};
+    urls.geocode = "http://api.tiles.mapbox.com/v3/{0}/geocode/{1},{2}.json";
+    self.FindCityReverseGeocode = function(lng, lat){
+      var q = $http.get(urls.geocode.format(GeoAPIConstants.mapBoxId,lng,lat));
+        return q.then(function(r){
+                    return self.extractCityFromGeocodeJSONResult(r.data);
+        });
+      };
+    self.extractCityFromGeocodeJSONResult = function(result){
+      if(self.isResultEmpty(result))
+        return null;
+      return self.searchInMatrixForCity(result);
+    };
+    self.isResultEmpty = function(result){
+      return !result.results || result.results.length === 0;
+    }
+    self.searchInMatrixForCity = function(result){
+      for(var i = 0; i < result.results.length; i++){
+        for(var j = 0; j < result.results.length; j++){
+          if(result.results[i][j].type == 'city')
+            return result.results[i][j];
+        }
+      }
+      return null;
+    }
+  }]);
+{% endhighlight %}
+
+
+###Openstreetmap
+
+{% highlight js %}
+reverseGeocodeModule.service('OpenstreetmapService', [ '$http',
+  function($http){
+    var self = this;
+    var urls = {};
+    urls.geocode = "http://nominatim.openstreetmap.org/reverse?format=json&lat={1}&lon={0}";
+    self.FindCityReverseGeocode = function(lng, lat){
+            return $http.get(urls.geocode.format(lng,lat));
+    };
+  }]);
+{% endhighlight %}
+
+###Geonames
+
+{% highlight js %}
+reverseGeocodeModule.service('GeonamesService', [ '$http','GeoAPIConstants',
+  function($http,GeoAPIConstants){
+    var self = this;
+    var urls = {};
+    urls.reverseGeocode = "http://ws.geonames.org/findNearbyPlaceNameJSON?lat={1}&lng={0}&style=full&username={2}";
+
+    self.FindCityReverseGeocode = function(lng, lat){
+            var q = $http.get(urls.reverseGeocode.format(lng,lat,GeoAPIConstants.geonameId));
+            return q.then(function(result){
+                var listResults = result.data.geonames;
+                for(var i = 0; i < listResults.length; i++){
+                    if(0<=self.findFeatureClassIndexFor(listResults[i]))
+                      return listResults[i];
+                }
+            });
+    };
+    self.findFeatureClassIndexFor = function(geolocation){
+      var featureClassNameList = geolocation.fclName.split(',');
+      return featureClassNameList.indexOf("city");
+    };
+  }]);
+{% endhighlight %}
+
 
 ##Solution elected
 
+Opencage service
+
+{% highlight js %}
+reverseGeocodeModule.service('OpenCageService', [ '$http','GeoAPIConstants',
+  function($http,GeoAPIConstants){
+    var self = this;
+    var urls = {};
+    urls.geocode = "https://api.opencagedata.com/geocode/v1/json?q={1},{0}&pretty=1&key={2}";
+    self.FindCityGeoCodeReverse = function(lng, lat){
+      if(lng>0)
+        lng='+'+lng;
+      if(lat>0)
+        lat='+'+lat;
+      var q = $http.get(urls.geocode.format(lng,lat,GeoAPIConstants.openCage));
+        return q.then(function(r){
+                    return r.data.results[0].components;
+        });
+      };
+  }]);
+
+{% endhighlight %}
+<!---
+but the analysis of the results were quite disapoiting
+
 ##Next experiment
 
-
+-->
 
 
