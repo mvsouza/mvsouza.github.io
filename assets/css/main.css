@@ -4747,6 +4747,10 @@ body {
   overflow: hidden;
 }
 
+.entry-header#particles-js {
+  background: -webkit-radial-gradient(ellipse farthest-corner, #fafafa 0%, #000000);
+}
+
 .entry-header#particles-js canvas {
   position: absolute;
   top: 0;

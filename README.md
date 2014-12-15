@@ -102,3 +102,7 @@ Having a problem getting something to work or want to know why I setup something
 ## License
 
 This theme is free and open source software, distributed under the [The MIT License](https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/LICENSE). So feel free to to modify this theme to suit your needs. 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mvsouza/mvsouza.github.io/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
