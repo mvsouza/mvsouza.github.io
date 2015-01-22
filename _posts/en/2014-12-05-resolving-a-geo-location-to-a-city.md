@@ -7,8 +7,8 @@ image:
   feature: 
   credit: 
   creditlink: 
-comments: 
-share: 
+comments: true
+share: true
 ---
 
 The last week I was looking a way to find out the city from a latitude and longitude.
@@ -158,6 +158,7 @@ reverseGeocodeModule.service('OpenCageService', [ '$http','GeoAPIConstants',
 but the analysis of the results were quite disapoiting
 
 -->
+
 ##Next experiments
 
 The chosen API is running in beta version, so considered it risky. 

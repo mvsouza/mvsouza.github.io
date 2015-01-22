@@ -6,6 +6,22 @@ words_per_minute: 200
 #Your site's domain goes here. Leave localhost server or blank when working locally.
 url: http://mvsouza.com             
 
+
+defaults:
+  -
+    scope:
+      path: _posts/en
+    values:
+      layout: default
+      lang: en
+  -
+    scope:
+      path: _posts/pt-br
+    values:
+      layout: default
+      lang: pt-br
+
+
 # Owner/author information
 owner:
   name:           Matheus Valiente Souza
@@ -49,7 +65,7 @@ timezone:    America/Sao_Paulo
 future:      true
 highlighter: pygments
 markdown: kramdown
-permalink: pretty
+permalink: /:title/
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title/
