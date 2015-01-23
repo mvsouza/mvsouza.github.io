@@ -1,17 +1,17 @@
 ---
 layout: post-index
-title: Latest Posts
+permalink: /inicio/
+title: Ultimos posts
 modified: 2014-11-07 00:00:01 -0000
-description: "Describe this nonsense."
+description: "Descreva esse nonsense."
 tags: [Jekyll, theme, themes, responsive, blog, modern]
 particles: true
-lang: "en"
+lang: "pt"
 image:
   feature: abstract-1.jpg
   credit: dargadgetz
   creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
-
 {% assign posts=paginator.posts | where:"lang", page.lang %}
 {% for post in posts %}
 <article class="hentry">
@@ -41,12 +41,12 @@ image:
 <div class="pagination">
   {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-      <a href="{{ site.url }}" class="btn">Previous</a>
+      <a href="{{ site.url }}" class="btn">Anterior</a>
     {% else %}
-      <a href="{{ site.url }}/page{{ paginator.previous_page }}" class="btn">Previous</a>
+      <a href="{{ site.url }}/page{{ paginator.previous_page }}" class="btn">Anterior</a>
     {% endif %}
   {% else %}
-    Previous
+    Anterior
   {% endif %}
   <ul class="inline-list">
     <li>
@@ -67,8 +67,8 @@ image:
     {% endfor %}
   </ul>
   {% if paginator.next_page %}
-    <a href="{{ site.url }}/page{{ paginator.next_page }}" class="btn">Next</a>
+    <a href="{{ site.url }}/page{{ paginator.next_page }}" class="btn">Próxima</a>
   {% else %}
-    Next
+    Próxima
   {% endif %}
 </div><!-- /.pagination -->

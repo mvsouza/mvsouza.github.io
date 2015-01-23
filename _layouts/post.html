@@ -41,7 +41,16 @@
         <p class="entry-reading-time">
           <i class="fa fa-clock-o"></i>
           {% assign readtime = content | number_of_words | divided_by:site.words_per_minute %}
-          Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
+          {% if page.lang == 'en' %}Reading time ~{% endif %}
+          {% if page.lang == 'pt' %}Tempo de leitura ~{% endif %}
+          {% if readtime <= 1 %}
+            {% if page.lang == 'en' %}1 minute{% endif %}
+            {% if page.lang == 'pt' %}1 minuto{% endif %}
+          {% else %}
+            {{ readtime }}
+            {% if page.lang == 'en' %} minutes{% endif %}
+            {% if page.lang == 'pt' %} minutos{% endif %}
+          {% endif %}
         </p><!-- /.entry-reading-time -->
         {% endif %}
       </div><!-- /.header-title-wrap -->
@@ -65,7 +74,7 @@
     {% if site.disqus_shortname and page.comments %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
     {% if site.related_posts.size %}
     <div class="read-more">
-      {% for post in site.related_posts limit:1 %}
+      {% for post in site.related_posts limit:1 | where:"lang", page.lang %}
         <div class="read-more-header">
           <a href="{{ site.url }}{{ page.previous.url }}" class="read-more-btn">Read More</a>
         </div><!-- /.read-more-header -->
@@ -75,7 +84,7 @@
         </div><!-- /.read-more-content -->
       {% endfor %}
       <div class="read-more-list">
-        {% for post in site.related_posts limit:2 offset:1 %}
+        {% for post in site.related_posts limit:2 offset:1 | where:"lang", page.lang %}
           <div class="list-item">
             <h4><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
             <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>

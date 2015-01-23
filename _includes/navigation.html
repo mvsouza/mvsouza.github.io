@@ -1,15 +1,27 @@
 <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
 	<button class="dl-trigger">Open Menu</button>
 	<ul class="dl-menu">
-		<li><a href="{{ site.url }}">Home</a></li>
+		<li><a href="{{ site.url }}{{ site.t[page.lang].home.url }}">{{site.t[page.lang].home.name}}</a></li>
 		<li>
+			<a href="#">{{site.t[page.lang].translate.name}}</a>
+			<ul class="dl-submenu">
 			{% assign posts=site.posts |  where:"date", page.date | sort: 'path' %}
 			{% for post in posts %}
-			        <a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a>
+				{% if page.lang != post.lang %}<li>
+			    	<li><a href="{{ site.url }}{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a></li>
+			    {% endif %}
 			{% endfor %}
+			{% assign posts=site.pages |  where:"modified", page.modified %}
+			{% for post in posts %}
+				{% if page.lang != post.lang %}<li>
+			    	<li><a href="{{ site.url }}{{ post.permalink }}" class="{{ post.lang }}">{{ post.lang }}</a></li>
+			    {% endif %}
+			{% endfor %}
+
+			</ul>
 		</li>
 		<li>
-			<a href="#">About</a>
+			<a href="#">{{site.t[page.lang].about.name}}</a>
 			<ul class="dl-submenu">
 				<li>
 					<img src="{{ site.url }}/images/{{ site.owner.avatar }}" alt="{{ site.owner.name }} photo" class="author-photo">
@@ -52,10 +64,10 @@
 			</ul><!-- /.dl-submenu -->
 		</li>
 		<li>
-			<a href="#">Posts</a>
+			<a href="#">{{site.t[page.lang].posts.name}}</a>
 			<ul class="dl-submenu">
-				<li><a href="{{ site.url }}/posts/">All Posts</a></li>
-				<li><a href="{{ site.url }}/tags/">All Tags</a></li>
+				<li><a href="{{ site.url }}{{ site.t[page.lang].allPosts.url }}">{{site.t[page.lang].allPosts.name}}</a></li>
+				<li><a href="{{ site.url }}{{ site.t[page.lang].allTags.url }}">{{site.t[page.lang].allTags.name}}</a></li>
 			</ul>
 		</li>
 		{% for link in site.links %}<li>{% if link.external %}<a href="{{ link.url }}" target="_blank">{{ link.title }}</a>{% else %}<a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a>{% endif %}</li>{% endfor %}

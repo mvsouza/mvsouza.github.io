@@ -4,7 +4,7 @@ disqus_shortname: mvsouza
 reading_time:     true
 words_per_minute: 200
 #Your site's domain goes here. Leave localhost server or blank when working locally.
-url: http://mvsouza.com             
+url: http://localhost:4000 #http://mvsouza.com             
 
 
 defaults:
@@ -16,11 +16,45 @@ defaults:
       lang: en
   -
     scope:
-      path: _posts/pt-br
+      path: _posts/pt
     values:
       layout: default
-      lang: pt-br
-
+      lang: pt
+t:
+  en:
+    home:
+      name: "Home"
+      url: "/"
+    about:
+      name: "About"
+    #  url: "/about/"
+    translate:
+      name: "Translations"
+    posts:
+      name: "Posts"
+    allPosts:
+      name: "All Post"
+      url: "/posts/"
+    allTags:
+      name: "All Tags"
+      url: "/Tags/"
+  pt:
+    home:
+      name: "Inicio"
+      url: "/inicio/"
+    about:
+      name: "Sobre"
+    #  url: "/sobre/"
+    translate:
+      name: "Tradução"
+    posts:
+      name: "Postagens"
+    allPosts:
+      name: "Todas Postagens"
+      url: "/postagens/"
+    allTags:
+      name: "Todas Marcações"
+      url: "/marcacoes/"
 
 # Owner/author information
 owner:
@@ -71,7 +105,7 @@ permalink: /:title/
 permalink:   /:categories/:title/
 
 # Amount of post to show on home page
-paginate: 5
+paginate: 12
 kramdown:
   auto_ids: true
   footnote_nr: 1
