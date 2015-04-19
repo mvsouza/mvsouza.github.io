@@ -72,9 +72,11 @@
       </footer>
     </div><!-- /.entry-content -->
     {% if site.disqus_shortname and page.comments %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
-    {% if site.related_posts.size %}
+    
+    {% assign related_posts = site.related_posts | where:"lang", page.lang %}
+    {% if related_posts.size %}
     <div class="read-more">
-      {% for post in site.related_posts limit:1 | where:"lang", page.lang %}
+      {% for post in related_posts limit:1  page.lang %}
         <div class="read-more-header">
           <a href="{{ site.url }}{{ page.previous.url }}" class="read-more-btn">Read More</a>
         </div><!-- /.read-more-header -->
@@ -84,7 +86,7 @@
         </div><!-- /.read-more-content -->
       {% endfor %}
       <div class="read-more-list">
-        {% for post in site.related_posts limit:2 offset:1 | where:"lang", page.lang %}
+        {% for post in related_posts limit:2 offset:1  %}
           <div class="list-item">
             <h4><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
             <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>
