@@ -4,16 +4,16 @@ title: "Começando com Yeoman"
 modified: 2014-11-08 23:13:01 -0200
 tags: [Yeoman, Jumpstart, boilerplate code, bower, yo, npm]
 image:
-  feature: article-2321142-19AE06ED000005DC-80_964x641.jpg
-  credit: Dailymail
-  creditlink: http://www.dailymail.co.uk/
+feature: article-2321142-19AE06ED000005DC-80_964x641.jpg
+credit: Dailymail
+creditlink: http://www.dailymail.co.uk/
 comments: true
 share: true
 ---
 
-In this jump start we gonna learn to create a angular directive with Yeoman
+Neste jump start vou mostrar como criar diretivas do Angular usando Yeoman.
 
-But before the good part, let me briefly introduce to you Yeoman, or just skip to the [good part](#letsgetdowntoit).
+Mas antes da parte boa, deixe-me introduzir brevemente o Yeoman, ou apenas pule para [parte boa](#letsgetdowntoit).
 
 ##What'a hell?
 
@@ -21,27 +21,28 @@ But before the good part, let me briefly introduce to you Yeoman, or just skip t
 	<img style="height:" src="{{ site.url }}/images/yeoman-005.ef68.png"/>
 </p>
 
-You may not know about the existence of Yeoman, as I didn't. So in that case you are asking yourself "What the F$%# is this?".
-Yeoman is scaffolding tool that helps developers to start up their projects, especially client side kind. It generates boilerplate code, including bower and npm package references and task runner scripts grunt or gulp.  
+Você pode não saber sobre a existência do Yoeman, como eu não conhecia. Nesse caso você deve estar se perguntando "Que m#$%# é essa?".
+Yeoman é uma ferramente de scaffolding, que ajuda a desenvolvedores a começar seus projetos, especialmente o tipo web. Ele gera código ordinário, incluindo referências de pacotes bower e npm e scripts de task runners como Grunt e Gulp.  
 
-##And? Why should I care about it?
+##E o queco?
 
-Actually, this is pretty neat, because you can easily set up a project with a whole structure, without having to copy your own code or from others. 
+Na realidade é uma solução bem elegante, pois você pode facilmente configurar um projeto com toda uma estrutura, sem ter que ficar copiando código de outros projetos ou reescrever a mesma balela de sempre. 
 
 <p style="text-align:center;">
-<img alt="Copy ain't funny" src="{{ site.url }}/images/Copying_test-331x285.jpg"/>
+	<img alt="Copy ain't funny" src="{{ site.url }}/images/Copying_test-331x285.jpg"/>
 </p>
-There fore, it increases your productivity and, if use it the right way, software quality, by adding tools that by yourself wouldn't be able to set in a proper time.
+
+Dessa forma aumenta a sua produtividade e, se usada da forma correta, a qualidade do software ao adicionar ferramentas que você deixaria para traz por "atrasar" o "progresso" do projeto.
 
 <p style="text-align:center;">
 	<video style="width: 275px;" alt="Ain't got time for that" src="{{ site.url }}/images/aintgottimeforthat.webm" autoplay="autoplay" loop="loop"> 
-   Your browser does not implement html5 video. 
+		Seu browser não implementa html5 video. 
 	</video>
 </p>
 
-It has already set of generators, that cover a good variety of modern webapp projects. Each one requires some usual tasks for its purpose, like automated tests, build, watch (livereload), and in common projects dependencies, as AngularJS, Bootstrap.
+Já contém uma coleção de geradores, que cobrem uma boa variedade de soluções. Cada qual requer algumas tarefas usuais ligados ao seu proposito, como testes automatizados, build, watch (livereload), e dependências em comum, como AngularJS, Bootstrap.
 
-In order to cover these needs, it may generate bower and npm package references and Grunt or Gult files for running tasks.
+No intuito de cobrir essas necessidades, pode gerar referencias para pacotes bower e npm e arquivos Grunt ou Gult para rodar tarefas.
 
 <!-- more -->
 
@@ -49,10 +50,10 @@ In order to cover these needs, it may generate bower and npm package references 
 
 ##\#LetsGetDownToIt
 
-We need some stuff fist:
+Precisamos de algumas coisas primeiro:
 
-* Install [NPM](https://www.npmjs.org/), [nodejs](http://nodejs.org/) package manager
-* And them Yeoman itself.
+* Instale [NPM](https://www.npmjs.org/), [nodejs](http://nodejs.org/) package manager;
+* E depois o próprio Yeoman.
 
 {% highlight bash %}
 npm install -g yo
@@ -60,31 +61,31 @@ npm install -g yo
 
 <p alt="Ain't got time for that" style="text-align:center;">
 	<video style="width: 275px;" src="{{ site.url }}/images/lonely_island_michael_bolton_jack_sparrow_back_to_.webm" autoplay="autoplay" loop="loop"> 
-   Your browser does not implement html5 video. 
+		Seu browser não implementa html5 video. 
 	</video>
 </p>
 
-Now that we are good to go, we need to download the angular directives generator for Yeoman.
+Agora estamos prontos para começar! Precisamos baixar o gerador do Yeoman para diretiva de Angular.
 
-You can find generators by searching in npm by packages with the prefix "generator", like that:
-
-{% highlight bash %}
-npm serach generator WhaterverYouLike
-{% endhighlight %}
-
-In this case we will need the angular directive, so we like this:
+Você pode encontrar geradores pesquisando no npm por por pacotes com o prefixo "generator", dessa forma:
 
 {% highlight bash %}
-npm serach generator directive
+npm search generator OQueVocêEstaPesquisando
 {% endhighlight %}
 
-With the package name in hand we install it.
+Nessa caso em especifico, vamos precisar procurar a diretiva do angular, então pesquisamos dessa forma:
+
+{% highlight bash %}
+npm search generator directive
+{% endhighlight %}
+
+Com o nome do pacote em mãos nós instalamos ele.
 
 {% highlight bash %}
 npm install generator-angular-directive -g
 {% endhighlight %}
 
-The npm packages with "generator-" prefix stands for yo templates. To run the recently added generator, we just need loose the prefix and pass it to the Yeomann generate it. Before this ensure that you are in the project folder.
+Os pacotes npm com o prefixo "generator-" nomeiam templates do yo. Para rodar o gerador recentemente adicionado, nós apenas retiramos o prefixo e passamos como argumento para o Yeoman. Antes disso, garanta que já esta na pasta do projeto.
 
 {% highlight bash %}
 mkdir ng-yomanDirective
@@ -92,5 +93,35 @@ cd ng-yomanDirective
 yo angular-directive
 {% endhighlight %}
 
-Now that the magic happens! The Yeoman gladfully will ask some settings to generate the project in a more convenient way.
+Agora que a magica acontece! O Yeoman irá perguntar algumas configurações para gerar de forma mais conveniente o projeto.
+
+Esse template irá o nome que você quer dar para diretiva e o sue nome no github.
+
+Então irá criar a solução com:
+* Uma configuração para, rodar os teste e o servidor em em live mode;
+* Configuração para Testes automatizados com karma e jasmine;
+* configuração para integração continua usando Travis.
+
+Essas são as coisas que você precisa para começar a desenvolver.
+
+Com a solução preparada, rode as seguintes linhas para instalar as dependência:
+
+{% highlight bash %}
+npm install -g gulp
+npm install -g bower
+npm install
+bower install
+{% endhighlight %}
+
+Para rodar o live reload demo rode:
+
+{% highlight bash %}
+gulp serve
+{% endhighlight %}
+
+E para desenvolver usando TDD, procurando sempre se manter no verde, rode:
+
+{% highlight bash %}
+gulp test  
+{% endhighlight %}
 

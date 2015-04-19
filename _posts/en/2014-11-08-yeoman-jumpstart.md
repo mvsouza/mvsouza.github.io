@@ -11,7 +11,7 @@ comments: true
 share: true
 ---
 
-In this jump start we gonna learn to create a angular directive with Yeoman
+In this jump start I will show how to create a Angular directive using Yeoman.
 
 But before the good part, let me briefly introduce to you Yeoman, or can't handle yourself just skip to the [good part](#letsgetdowntoit).
 
@@ -22,11 +22,11 @@ But before the good part, let me briefly introduce to you Yeoman, or can't handl
 </p>
 
 You may not know about the existence of Yeoman, as I didn't. So in that case you are asking yourself "What the F$%# is this?".
-Yeoman is scaffolding tool that helps developers to start up their projects, especially client side kind. It generates boilerplate code, including bower and npm package references and task runner scripts grunt or gulp.  
+Yeoman is scaffolding tool that helps developers to start up their projects, especially the web kind. It generates boilerplate code, including bower and npm package references and task runner scripts like grunt and gulp.  
 
 ##And? Why should I care about it?
 
-Actually, this is pretty neat, because you can easily set up a solution with a whole structure, without having to copy your own code or from "Google". 
+Actually, this is pretty neat, because you can easily set up a solution with a whole structure, without having to copy code from other projects or write the same jibber jabber. 
 
 <p style="text-align:center;">
 <img alt="Copy ain't funny" src="{{ site.url }}/images/Copying_test-331x285.jpg"/>
@@ -64,18 +64,18 @@ npm install -g yo
 	</video>
 </p>
 
-Now that we are good to go, we need to download the angular directives generator for Yeoman.
+Now we are good to go! We need to download the angular directives generator for Yeoman.
 
 You can find generators by searching in npm by packages with the prefix "generator", like that:
 
 {% highlight bash %}
-npm serach generator WhaterverYouLike
+npm search generator WhaterverYouLike
 {% endhighlight %}
 
-In this case we will need the angular directive, so we like this:
+In this case we will need the angular directive, so we search like this:
 
 {% highlight bash %}
-npm serach generator directive
+npm search generator directive
 {% endhighlight %}
 
 With the package name in hand we install it.
@@ -84,7 +84,7 @@ With the package name in hand we install it.
 npm install generator-angular-directive -g
 {% endhighlight %}
 
-The npm packages with "generator-" prefix stands for yo templates. To run the recently added generator, we just need loose the prefix and pass it to the Yeomann generate it. Before this ensure that you are in the project folder.
+The npm packages with "generator-" prefix stands for yo templates. To run the recently added generator, we just need loose the prefix and pass it as argument to Yeomann. Before this ensure that you are in the project folder.
 
 {% highlight bash %}
 mkdir ng-yomanDirective
@@ -92,9 +92,9 @@ cd ng-yomanDirective
 yo angular-directive
 {% endhighlight %}
 
-Now that the magic happens! The Yeoman gladfully will ask some setting to generate in a more convenient way.
+Now that the magic happens! The Yeoman will ask some setting to generate in a more convenient way the project.
 
-This template will ask you the name you wish to give for your new directive, and your github name.
+This template will ask you the name you wish to give for your new directive and your github name.
 
 And them It will create a solution with:
 * A configuration to build, run test and run server for live demo;
