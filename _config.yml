@@ -4,8 +4,8 @@ disqus_shortname: mvsouza
 reading_time:     true
 words_per_minute: 200
 #Your site's domain goes here. Leave localhost server or blank when working locally.
-url: http://mvsouza.com             
 
+url: http://mvsouza.com             
 
 defaults:
   -
@@ -100,7 +100,13 @@ future:      true
 highlighter: pygments
 markdown: kramdown
 permalink: /:title/
-
+paginate_config:
+  - 
+    file: index.html
+    paginate_path: /page:num
+  - 
+    file: inicio.html
+    paginate_path: /inicio/page:num
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title/
 
