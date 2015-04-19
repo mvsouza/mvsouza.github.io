@@ -411,6 +411,12 @@ pre::-webkit-scrollbar-thumb:horizontal {
           border-radius: 4px;
 }
 
+.en:lang(en),
+.pt-br:lang(pt-br),
+.zh:lang(zh) {
+  font-weight: bold;
+}
+
 .highlight {
   margin-bottom: 1.5em;
   font-size: 12px;
