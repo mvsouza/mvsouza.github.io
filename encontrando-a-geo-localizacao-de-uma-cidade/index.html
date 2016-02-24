@@ -153,16 +153,153 @@
           
           Tempo de leitura ~
           
+            5
             
-            1 minuto
+             minutos
           
         </p><!-- /.entry-reading-time -->
         
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>The last week I was looking a way to find out the city from a latitude and longitude.
-So here is what I learned.</p>
+      <p>Semana passada eu estava procurando uma forma de encontrar a cidade a partir de uma latitude e longitude.
+Então aqui esta o que eu aprendi.</p>
+
+<h2 id="circunstncias">Circunstâncias</h2>
+
+<p>NA realidade eu e meu time tropeamos nesse problema pois estamos utilizando os locais da API do Foursquare, que nem sempre prove essa informação, e quando prove pode estar incorreta.
+Então eu me debati com algumas soluções não satisfatórias, entre as quais testei as APIs do Geonames, Onpenstreemap e Mapbpx.
+Finalmente encontrai o serviço beta do Opencage, que utiliza o Towfishes para reverter o geocode.</p>
+
+<p>Eu estou atualmente usando o mapa do Mapbox map para mostrar os locais do Foursquare, e a API do Geoname para fazer o auto complete do mome cidades no nosso formulário de busca.
+Não deveria ser nada difícil, se não fosse pelo fato de não podermos usar a API do Google, pois a seus termos de uso obrigam o uso do seu mapa.</p>
+
+<h2 id="desenvolvendo-o-acesso-s-apis">Desenvolvendo o acesso às APIs</h2>
+
+<p>O senário ideal seria utilizar a API do Geoname, pois o serviço é gratuito e nós já estamos usando, então os nos das cidades seriam similares aos utilizados na pesquisa de locais.</p>
+
+<p>Como já havia experimentado antes, os seus resultados não seguem um padrão ao certo, mas testei novamente para ter certeza.</p>
+
+<p>Como alternativa escolhi testar as APIs do Mapbox, na qual já temos conta, e Openstreetmap, que não necessita de conta.</p>
+
+<p>No intuito de desencolver o teste para as APIs, programei um Webapp com Angular utilizando um template do Yeoman.</p>
+
+<h2 id="implementao">Implementação</h2>
+
+<p>Então eu desenvolvi um serviço que utilizaria todas essa APIs.</p>
+
+<p>Para configurar o serviço, adicionei uma constante para o módulo angular como segue added. </p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reverseGeocodeModule</span><span class="p">.</span><span class="nx">constant</span><span class="p">(</span><span class="s1">&#39;GeoAPIConstants&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">mapBoxId</span><span class="o">:</span> <span class="s1">&#39;xxxxxx&#39;</span><span class="p">,</span>
+    <span class="nx">geonameId</span><span class="o">:</span> <span class="s1">&#39;xxxxxx&#39;</span><span class="p">,</span>
+    <span class="nx">openCage</span><span class="o">:</span> <span class="s1">&#39;xxxxxx&#39;</span>
+  <span class="p">});</span></code></pre></div>
+
+<p>Quando desenvolvi o serviço, usei essas constantes para identificar as configurações de ambiente, então não é preciso ficar procurando per todos arquivos para alterar minhas conde acesso.   </p>
+
+<p>Veja o serviços.</p>
+
+<h3 id="mapbox">Mapbox</h3>
+
+<p>A WEB API do Mapbox tem <a href="http://api.tiles.mapbox.com/v3/examples.map-zr0njcqy/geocode/-73.989,40.733.json">essa chamada para reverter o geocode</a>.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reverseGeocodeModule</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;MapboxService&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s1">&#39;$http&#39;</span><span class="p">,</span><span class="s1">&#39;GeoAPIConstants&#39;</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">,</span><span class="nx">GeoAPIConstants</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="nx">urls</span><span class="p">.</span><span class="nx">geocode</span> <span class="o">=</span> <span class="s2">&quot;http://api.tiles.mapbox.com/v3/{0}/geocode/{1},{2}.json&quot;</span><span class="p">;</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">FindCityReverseGeocode</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span> <span class="nx">lat</span><span class="p">){</span>
+      <span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">urls</span><span class="p">.</span><span class="nx">geocode</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">GeoAPIConstants</span><span class="p">.</span><span class="nx">mapBoxId</span><span class="p">,</span><span class="nx">lng</span><span class="p">,</span><span class="nx">lat</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">q</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">){</span>
+                    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">extractCityFromGeocodeJSONResult</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">});</span>
+      <span class="p">};</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">extractCityFromGeocodeJSONResult</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">isResultEmpty</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">searchInMatrixForCity</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">isResultEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+      <span class="k">return</span> <span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">results</span> <span class="o">||</span> <span class="nx">result</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">searchInMatrixForCity</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+      <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+          <span class="k">if</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">].</span><span class="nx">type</span> <span class="o">==</span> <span class="s1">&#39;city&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}]);</span></code></pre></div>
+
+<h3 id="openstreetmap">Openstreetmap</h3>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reverseGeocodeModule</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;OpenstreetmapService&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s1">&#39;$http&#39;</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="nx">urls</span><span class="p">.</span><span class="nx">geocode</span> <span class="o">=</span> <span class="s2">&quot;http://nominatim.openstreetmap.org/reverse?format=json&amp;lat={1}&amp;lon={0}&quot;</span><span class="p">;</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">FindCityReverseGeocode</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span> <span class="nx">lat</span><span class="p">){</span>
+            <span class="k">return</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">urls</span><span class="p">.</span><span class="nx">geocode</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span><span class="nx">lat</span><span class="p">));</span>
+    <span class="p">};</span>
+  <span class="p">}]);</span></code></pre></div>
+
+<h3 id="geonames">Geonames</h3>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reverseGeocodeModule</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;GeonamesService&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s1">&#39;$http&#39;</span><span class="p">,</span><span class="s1">&#39;GeoAPIConstants&#39;</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">,</span><span class="nx">GeoAPIConstants</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="nx">urls</span><span class="p">.</span><span class="nx">reverseGeocode</span> <span class="o">=</span> <span class="s2">&quot;http://ws.geonames.org/findNearbyPlaceNameJSON?lat={1}&amp;lng={0}&amp;style=full&amp;username={2}&quot;</span><span class="p">;</span>
+
+    <span class="nx">self</span><span class="p">.</span><span class="nx">FindCityReverseGeocode</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span> <span class="nx">lat</span><span class="p">){</span>
+            <span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">urls</span><span class="p">.</span><span class="nx">reverseGeocode</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span><span class="nx">lat</span><span class="p">,</span><span class="nx">GeoAPIConstants</span><span class="p">.</span><span class="nx">geonameId</span><span class="p">));</span>
+            <span class="k">return</span> <span class="nx">q</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+                <span class="kd">var</span> <span class="nx">listResults</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">geonames</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">listResults</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+                    <span class="k">if</span><span class="p">(</span><span class="mi">0</span><span class="o">&lt;=</span><span class="nx">self</span><span class="p">.</span><span class="nx">findFeatureClassIndexFor</span><span class="p">(</span><span class="nx">listResults</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span>
+                      <span class="k">return</span> <span class="nx">listResults</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+    <span class="p">};</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">findFeatureClassIndexFor</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">geolocation</span><span class="p">){</span>
+      <span class="kd">var</span> <span class="nx">featureClassNameList</span> <span class="o">=</span> <span class="nx">geolocation</span><span class="p">.</span><span class="nx">fclName</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">featureClassNameList</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;city&quot;</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">}]);</span></code></pre></div>
+
+<h2 id="soluo-escolhida">Solução escolhida</h2>
+
+<p>Opencage</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reverseGeocodeModule</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;OpenCageService&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="s1">&#39;$http&#39;</span><span class="p">,</span><span class="s1">&#39;GeoAPIConstants&#39;</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">,</span><span class="nx">GeoAPIConstants</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">urls</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="nx">urls</span><span class="p">.</span><span class="nx">geocode</span> <span class="o">=</span> <span class="s2">&quot;https://api.opencagedata.com/geocode/v1/json?q={1},{0}&amp;pretty=1&amp;key={2}&quot;</span><span class="p">;</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">FindCityGeoCodeReverse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span> <span class="nx">lat</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">lng</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nx">lng</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="o">+</span><span class="nx">lng</span><span class="p">;</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">lat</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nx">lat</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="o">+</span><span class="nx">lat</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">urls</span><span class="p">.</span><span class="nx">geocode</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span><span class="nx">lat</span><span class="p">,</span><span class="nx">GeoAPIConstants</span><span class="p">.</span><span class="nx">openCage</span><span class="p">));</span>
+        <span class="k">return</span> <span class="nx">q</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">){</span>
+                    <span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">components</span><span class="p">;</span>
+        <span class="p">});</span>
+      <span class="p">};</span>
+  <span class="p">}]);</span></code></pre></div>
+
+<!---
+but the analysis of the results were quite disapoiting
+
+-->
+
+<h2 id="prximos-passos">Próximos passos</h2>
+
+<p>A API escolhida esta rodando em versão beta, então considere esse risco. 
+Para mitigar esse risco, o próximo passo seria testar a solução Twofishes, que opencage utiliza, para avalia-la como alternativa.</p>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://mvsouza.com/tags/#geocode" title="Pages tagged geocode" class="tag">geocode</a><a href="http://mvsouza.com/tags/#city" title="Pages tagged city" class="tag">city</a><a href="http://mvsouza.com/tags/#web-api" title="Pages tagged web-api" class="tag">web-api</a><a href="http://mvsouza.com/tags/#foursquare" title="Pages tagged foursquare" class="tag">foursquare</a><a href="http://mvsouza.com/tags/#twofishes" title="Pages tagged twofishes" class="tag">twofishes</a><a href="http://mvsouza.com/tags/#geonames" title="Pages tagged geonames" class="tag">geonames</a><a href="http://mvsouza.com/tags/#openstreetmap" title="Pages tagged openstreetmap" class="tag">openstreetmap</a><a href="http://mvsouza.com/tags/#opencage" title="Pages tagged opencage" class="tag">opencage</a></span>
@@ -202,7 +339,7 @@ So here is what I learned.</p>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2015 Matheus Valiente Souza. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
+    <span>&copy; 2016 Matheus Valiente Souza. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 
