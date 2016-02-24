@@ -11,13 +11,13 @@ comments: true
 share: true
 ---
 
-The last week I was looking a way to find out the city from a latitude and longitude.
+Last week I was looking a way to find out the city from a latitude and longitude.
 So here is what I learned.
 
 
 ##Circumstances
 
-Actualy I and my team triped in this issue, because we are using the venues from the Foursquare API, that doesn't always provide this informations, and when it does may be roungh.
+Actualy I and my team triped over this issue, because we are using the venues from the Foursquare API, that doesn't always provide this informations, and when it does may be roungh.
 So I strugle in some insatisfary solutions, between those I've tested Geonames Onpenstreemap and  Mapbpx API.
 Finaly it led me to the beta service of Opencage, that uses the Towfishes to resolve the geocode reverse.
 
