@@ -8,3 +8,5 @@ bower_components
 Gemfile.lock
 ehthumbs.db
 Thumbs.db
+assets/js/scripts.min.js
+assets/css/main.min.css
