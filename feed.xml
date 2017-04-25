@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://mvsouza.com/feed.xml" />
 <link rel="alternate" type="text/html" href="http://mvsouza.com" />
-<updated>2016-02-24T03:20:40+00:00</updated>
+<updated>2017-04-25T03:37:45+01:00</updated>
 <id>http://mvsouza.com/</id>
 <author>
   <name>Matheus Valiente Souza</name>
@@ -51,7 +51,7 @@ It shouldn’t be hard at all, if it isn’t the fact we can’t use the Google 
 
 &lt;p&gt;Then I develop a service that would use all those APIs.&lt;/p&gt;
 
-&lt;p&gt;To configure the service I’ve added constant to the angular module as follow. &lt;/p&gt;
+&lt;p&gt;To configure the service I’ve added constant to the angular module as follow.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;reverseGeocodeModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;GeoAPIConstants&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;mapBoxId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;xxxxxx&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -59,7 +59,7 @@ It shouldn’t be hard at all, if it isn’t the fact we can’t use the Google 
     &lt;span class=&quot;nx&quot;&gt;openCage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;xxxxxx&amp;#39;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;When I developed the services, I used these constants to identify the environment configurations, so I don’t need to peek on every file to change my access accounts.   &lt;/p&gt;
+&lt;p&gt;When I developed the services, I used these constants to identify the environment configurations, so I don’t need to peek on every file to change my access accounts.&lt;/p&gt;
 
 &lt;p&gt;Let me show the services.&lt;/p&gt;
 
@@ -207,7 +207,7 @@ Não deveria ser nada difícil, se não fosse pelo fato de não podermos usar a 
 
 &lt;p&gt;Então eu desenvolvi um serviço que utilizaria todas essa APIs.&lt;/p&gt;
 
-&lt;p&gt;Para configurar o serviço, adicionei uma constante para o módulo angular como segue added. &lt;/p&gt;
+&lt;p&gt;Para configurar o serviço, adicionei uma constante para o módulo angular como segue added.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;reverseGeocodeModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;GeoAPIConstants&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;mapBoxId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;xxxxxx&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -215,7 +215,7 @@ Não deveria ser nada difícil, se não fosse pelo fato de não podermos usar a 
     &lt;span class=&quot;nx&quot;&gt;openCage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;xxxxxx&amp;#39;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Quando desenvolvi o serviço, usei essas constantes para identificar as configurações de ambiente, então não é preciso ficar procurando per todos arquivos para alterar minhas conde acesso.   &lt;/p&gt;
+&lt;p&gt;Quando desenvolvi o serviço, usei essas constantes para identificar as configurações de ambiente, então não é preciso ficar procurando per todos arquivos para alterar minhas conde acesso.&lt;/p&gt;
 
 &lt;p&gt;Veja o serviços.&lt;/p&gt;
 
@@ -347,11 +347,11 @@ Para mitigar esse risco, o próximo passo seria testar a solução Twofishes, qu
 &lt;/p&gt;
 
 &lt;p&gt;You may not know about the existence of Yeoman, as I didn’t. So in that case you are asking yourself “What the F$%# is this?”.
-Yeoman is scaffolding tool that helps developers to start up their projects, especially the web kind. It generates boilerplate code, including bower and npm package references and task runner scripts like grunt and gulp.  &lt;/p&gt;
+Yeoman is scaffolding tool that helps developers to start up their projects, especially the web kind. It generates boilerplate code, including bower and npm package references and task runner scripts like grunt and gulp.&lt;/p&gt;
 
 &lt;h2 id=&quot;and-why-should-i-care-about-it&quot;&gt;And? Why should I care about it?&lt;/h2&gt;
 
-&lt;p&gt;Actually, this is pretty neat, because you can easily set up a solution with a whole structure, without having to copy code from other projects or write the same jibber jabber. &lt;/p&gt;
+&lt;p&gt;Actually, this is pretty neat, because you can easily set up a solution with a whole structure, without having to copy code from other projects or write the same jibber jabber.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
 &lt;img alt=&quot;Copy ain&#39;t funny&quot; src=&quot;http://mvsouza.com/images/Copying_test-331x285.jpg&quot; /&gt;
@@ -463,11 +463,11 @@ bower install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Você pode não saber sobre a existência do Yoeman, como eu não conhecia. Nesse caso você deve estar se perguntando “Que m#$%# é essa?”.
-Yeoman é uma ferramente de scaffolding, que ajuda a desenvolvedores a começar seus projetos, especialmente o tipo web. Ele gera código ordinário, incluindo referências de pacotes bower e npm e scripts de task runners como Grunt e Gulp.  &lt;/p&gt;
+Yeoman é uma ferramente de scaffolding, que ajuda a desenvolvedores a começar seus projetos, especialmente o tipo web. Ele gera código ordinário, incluindo referências de pacotes bower e npm e scripts de task runners como Grunt e Gulp.&lt;/p&gt;
 
 &lt;h2 id=&quot;e-o-queco&quot;&gt;E o queco?&lt;/h2&gt;
 
-&lt;p&gt;Na realidade é uma solução bem elegante, pois você pode facilmente configurar um projeto com toda uma estrutura, sem ter que ficar copiando código de outros projetos ou reescrever a mesma balela de sempre. &lt;/p&gt;
+&lt;p&gt;Na realidade é uma solução bem elegante, pois você pode facilmente configurar um projeto com toda uma estrutura, sem ter que ficar copiando código de outros projetos ou reescrever a mesma balela de sempre.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
 	&lt;img alt=&quot;Copy ain&#39;t funny&quot; src=&quot;http://mvsouza.com/images/Copying_test-331x285.jpg&quot; /&gt;
