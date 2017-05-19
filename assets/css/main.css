@@ -1587,6 +1587,7 @@ svg:not(:root) {
     position: fixed;
     top: 25px;
     left: 25px;
+    height: calc(100% - 50px);
     max-width: 175px;
   }
 }
@@ -1762,7 +1763,7 @@ svg:not(:root) {
 
 @media only screen and (min-width: 48em) {
   .dl-menuwrapper .dl-menu {
-    max-height: 650px;
+    max-height: 100%;
     -webkit-border-top-right-radius: 3px;
             border-top-right-radius: 3px;
     -webkit-border-bottom-right-radius: 3px;

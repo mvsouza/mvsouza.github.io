@@ -11,6 +11,7 @@
 	-moz-perspective-origin: 50% 200%;
 	perspective-origin: 50% 200%;
 	@media @medium {
+    	height: ~"(calc(~'100%' - ~'50px'))";
 		position: fixed;
 		max-width: 175px;
 		top: 25px;
@@ -138,7 +139,7 @@
 		backface-visibility: hidden;
 		@media @medium {
 			.border-radius(3px,3px,3px,3px);
-			max-height: 650px;
+    		max-height: 100%;
 		}
 	}
 	.dl-menu.dl-menu-toggle {
