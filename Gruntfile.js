@@ -47,20 +47,20 @@ module.exports = function(grunt) {
         }
       }
     },
-    imagemin: {
-      dist: {
-        options: {
-          optimizationLevel: 7,
-          progressive: true
-        },
-        files: [{
-          expand: true,
-          cwd: 'images/',
-          src: '{,*/}*.{png,jpg,jpeg}',
-          dest: 'images/'
-        }]
-      }
-    },
+//    imagemin: {
+//      dist: {
+//        options: {
+//          optimizationLevel: 7,
+//          progressive: true
+//        },
+//        files: [{
+//          expand: true,
+//          cwd: 'images/',
+//          src: '{,*/}*.{png,jpg,jpeg}',
+//          dest: 'images/'
+//        }]
+//      }
+//    },
     svgmin: {
       dist: {
         files: [{
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-recess');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
+//  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-svgmin');
 
   // Register tasks
@@ -108,7 +108,7 @@ module.exports = function(grunt) {
     'clean',
     'recess',
     'uglify',
-    'imagemin',
+//    'imagemin',
     'svgmin'
   ]);
   grunt.registerTask('dev', [

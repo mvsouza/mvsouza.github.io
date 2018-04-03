@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  blog:
+    image: mvsouza/blog
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
