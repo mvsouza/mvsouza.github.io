@@ -1,0 +1,318 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Event Sourcing &#8211; mvsouza</title>
+<meta name="description" content="Programmers journal.">
+<meta name="keywords" content="eventsource, eventdriven, DDD">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Event Sourcing">
+<meta property="og:description" content="Programmers journal.">
+<meta property="og:url" content="http://mvsouza.com/event-sourcing-pt/">
+<meta property="og:site_name" content="mvsouza">
+
+<meta name="google-site-verification" content="2121122112">
+<meta name="msvalidate.01" content="32312321312213">
+
+
+<link rel="canonical" href="http://mvsouza.com/event-sourcing-pt/">
+<link href="http://mvsouza.com/feed.xml" type="application/atom+xml" rel="alternate" title="mvsouza Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://mvsouza.com/assets/css/main.min.css">
+<!-- Webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://mvsouza.com/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://mvsouza.com/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://mvsouza.com/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://mvsouza.com/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://mvsouza.com/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://mvsouza.com/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://mvsouza.com/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://mvsouza.com/inicio/">Inicio</a></li>
+		<li>
+			<a href="#">Tradução</a>
+			<ul class="dl-submenu">
+			
+			
+				<li>
+			    	<li><a href="http://mvsouza.com/event-sourcing-en/" class="en">en</a></li>
+			    
+			
+				
+			
+			
+			
+
+			</ul>
+		</li>
+		<li>
+			<a href="#">Sobre</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://mvsouza.com/images/avatar.jpg" alt="Matheus Valiente Souza photo" class="author-photo">
+					<h4>Matheus Valiente Souza</h4>
+					<p>Programmer.</p>
+				</li>
+				<li>
+					<a href="mailto:mvs@mvsouza.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				
+				<li>
+					<a href="http://facebook.com/matheus.valientesouza"><i class="fa fa-facebook"></i> Facebook</a>
+				</li>
+				
+				<li>
+					<a href="http://linkedin.com/in/mvsouza"><i class="fa fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/mvsouza"><i class="fa fa-github"></i> GitHub</a>
+				</li>
+				
+				<li>
+					<a href="http://stackexchange.com/users/449767"><i class="fa fa-stack-exchange"></i> Stackexchange</a>
+				</li>
+				<li>
+					<a href="http://instagram.com/matheusvalientesouza"><i class="fa fa-instagram"></i> Instagram</a>
+				</li>
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Postagens</a>
+			<ul class="dl-submenu">
+				<li><a href="http://mvsouza.com/postagens/">Todas Postagens</a></li>
+				<li><a href="http://mvsouza.com/marcacoes/">Todas Marcações</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div class="entry-header">
+  <div class="image-credit">Image source: <a href="https://vimeo.com/266241166">Perceptual Art for the video and Michael Murphy for the Art</a></div><!-- /.image-credit -->
+  
+  <div class="entry-image">
+    <video src="http://mvsouza.com/images/MichaelMurphy.webm" alt="Event Sourcing" playsinline autoplay muted loop>
+  </div><!-- /.entry-image -->
+  
+</div><!-- /.entry-header -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://mvsouza.com/event-sourcing-pt/" rel="bookmark" title="Event Sourcing">Event Sourcing</a></h1>
+        
+        <h2>February 05, 2019</h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          
+          Tempo de leitura ~
+          
+            3
+            
+             minutos
+          
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>I know that you might be tired of reading/hearing about it, and there is enough material on it out there. Still, there are many inconsistencies and misconceptions that might make you fuzzy. So I’ll show you what I see as being the basics and give you good references. If it makes you curious enough, soon I’ll be posting some samples.</p>
+
+<h3 id="concept">Concept</h3>
+
+<p>Erick Evans, on his book about DDD, raises an interesting point about the object’s life cycle and reconstituting stored objects when writing about factories:</p>
+
+<blockquote>
+  <p>At some point, most objects get stored in databases or transmitted through a network, and few current database technologies retain the object character of their contents. Most transmission methods <strong>flatten an object</strong> into an even more limited presentation. Therefore, retrieval requires a potentially complex process of reassembling the parts into a live object.<br />
+– <cite>Eric Evans</cite></p>
+</blockquote>
+
+<p>He is explaining the importance of factories (as ORMs) to recreate objects as they were before being persisted to the database. He argues that there is a great responsibility for these objects when they reconstitute the previous state of a disposed object as they once were.</p>
+
+<p>Although his idea of object’s life cycle could be considered already <strong>flatten</strong> on an event-driven perspective. So we could say <em>Most structural data models <strong>flatten objects</strong> into an even more limited presentation.</em> Due to understanding it better, we should discuss what it means. Consider reading Martin Fowlers<a href="https://martinfowler.com/articles/201701-event-driven.html">article</a> about the subject, where he explains his view about event source (ES):</p>
+
+<blockquote>
+  <p>The core idea of event sourcing is that whenever we make a change to the state of a system, we record that state change as an event, and we can confidently rebuild the system state by reprocessing the events at any time in the future. The event store becomes the principal source of truth, and the system state is purely derived from it. For programmers, the best example of this is a version control system. The log of all the commits is the event store and the working copy of the source tree is the system state.<br />
+– <cite>Martin Fowler</cite></p>
+</blockquote>
+
+<p>In addition to Erick`s view, ES expands the immutability, only covered by Value Objects on DDD, to whole application state, like a shadow. We only <strong>append</strong> facts to the repository. In spite of changing and deleting objects, we create new events that, when applied, remove or change them from the current state.</p>
+
+<h3 id="aplication">Aplication</h3>
+
+<p>As good as it sounds, of course, you might not be already pumped to use it. I’ve just described what it is, not why. Why should you care? After all, if you wanna fix something without nails, a hammer is useless.</p>
+
+<p>I’ve questioned myself that years ago. To answer I had to associate with other concepts first, like distributed computing, DDD, functional programming. Now, I have a view of my own, and I hope to help to build yours.</p>
+
+<p>One of its characteristics is traceability/auditability. Natively, you got the ability to trace all domain changes and easily understand how the application is behaving. Even more, you could easily add user information and audite user changes.</p>
+
+<p>Another important feature it provides is an easy reconciliation. So, when things go south between distributed systems, one can simply ask for what happened to others on a period then process all lost messages.</p>
+
+<p>For these reasons, ES should solve many problems like conflict management and desynchronization on microservice applications that shares business flows and IoT/embedded systems that might work off-line.</p>
+
+<p>There is plenty of real-world applications that would leverage this pattern, like:</p>
+
+<ul>
+  <li>Shipment tracker</li>
+  <li>IoT systems in general</li>
+  <li>Version control systems</li>
+  <li>Banking transactions</li>
+</ul>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>To conclude the pros/cons, I will let Greg Young, who has made the concept popular, anwser that:</p>
+
+<blockquote>
+  <h4 id="pros"><strong>Pros</strong></h4>
+  <p>Single Event Centric Model<br />
+Simplified/Better Testing<br />
+Conflict Management<br />
+#### <strong>Cons</strong><br />
+Harder to sell to an organization<br />
+Less known tools/technologies (though you can implement the Event Store in a RDBMS which kind of mitigates this)<br />
+Very difficult to migrate a legacy app to<br />
+–<cite><a href="http://codebetter.com/gregyoung/2010/02/20/why-use-event-sourcing/">Greg Young</a></cite> ##</p>
+</blockquote>
+
+<h3 id="next-steps">Next steps</h3>
+
+<p>I’ve been working with C# for a while now, so I will be posting some sample soon. But keep in mind that, as Vaught Venom wrote in his book <em>Implementing Domain Driven Design</em>, “ES is inherently functional in nature”, and its use on this paradigm would “potentially lead to more concise code that performs optimally”.</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://mvsouza.com/tags/#eventsource" title="Pages tagged eventsource" class="tag">eventsource</a><a href="http://mvsouza.com/tags/#eventdriven" title="Pages tagged eventdriven" class="tag">eventdriven</a><a href="http://mvsouza.com/tags/#DDD" title="Pages tagged DDD" class="tag">DDD</a></span>
+        <span><a href="http://mvsouza.com/event-sourcing-pt/" rel="bookmark" title="Event Sourcing">Event Sourcing</a> was published on <span class="entry-date date published updated"><time datetime="2019-02-05T00:00:00+00:00">February 05, 2019</time></span></span>
+        (revised: <span class="entry-date date modified"><time datetime="2019-02-05 10:32:22 +0000">02/05/2019</time></span>)
+        <span class="author vcard"><span class="fn"><a href="http://mvsouza.com/about/" title="About Matheus Valiente Souza">Matheus Valiente Souza</a></span></span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://mvsouza.com/event-sourcing-pt/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://mvsouza.com/event-sourcing-pt/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+            <li class="googleplus"><a href="https://plus.google.com/share?url=http://mvsouza.com/event-sourcing-pt/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+          </ul>
+        </div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    
+    
+    
+    <div class="read-more">
+      
+        <div class="read-more-header">
+          <a href="http://mvsouza.com/event-sourcing-en/" class="read-more-btn">Read More</a>
+        </div><!-- /.read-more-header -->
+        <div class="read-more-content">
+          <h3><a href="http://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade/" title="Encontrando geo-localização de uma cidade">Encontrando geo-localização de uma cidade</a></h3>
+          <p>Semana passada eu estava procurando uma forma de encontrar a cidade a partir de uma latitude e longitude.Então aqui esta o que eu aprendi...&hellip; <a href="http://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade/">Continue reading</a></p>
+        </div><!-- /.read-more-content -->
+      
+      <div class="read-more-list">
+        
+          <div class="list-item">
+            <h4><a href="http://mvsouza.com/comecando-com-yeoman/" title="Começando com Yeoman">Começando com Yeoman</a></h4>
+            <span>Published on November 08, 2014</span>
+          </div><!-- /.list-item -->
+        
+      </div><!-- /.read-more-list -->
+      
+    </div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 Matheus Valiente Souza. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://mvsouza.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://mvsouza.com/assets/js/scripts.min.js"></script>
+
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56576468-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mvsouza'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>	        
+
+</body>
+</html>

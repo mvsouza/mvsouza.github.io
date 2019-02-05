@@ -52,6 +52,14 @@
 
     
     <url>
+        <loc>http://mvsouza.com/event-sourcing-pt/</loc>
+    </url>
+    
+    <url>
+        <loc>http://mvsouza.com/event-sourcing-en/</loc>
+    </url>
+    
+    <url>
         <loc>http://mvsouza.com/resolving-a-geo-location-to-a-city/</loc>
     </url>
     

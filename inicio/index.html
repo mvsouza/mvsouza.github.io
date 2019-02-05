@@ -92,7 +92,7 @@
 					<p>Programmer.</p>
 				</li>
 				<li>
-					<a href="mailto:mathuesvalientesouza@hotmail.com"><i class="fa fa-envelope"></i> Email</a>
+					<a href="mailto:mvs@mvsouza.com"><i class="fa fa-envelope"></i> Email</a>
 				</li>
 				
 				<li>
@@ -105,13 +105,13 @@
 				<li>
 					<a href="http://github.com/mvsouza"><i class="fa fa-github"></i> GitHub</a>
 				</li>
-				<li>
-					<a href="https://coderbits.com/matheusvsouza"><img src="http://mvsouza.com/images/coderbits_256.png" alt="Coderbits" class="coder-bits-img">Coderbits</a>
-				</li>
+				
 				<li>
 					<a href="http://stackexchange.com/users/449767"><i class="fa fa-stack-exchange"></i> Stackexchange</a>
 				</li>
-				
+				<li>
+					<a href="http://instagram.com/matheusvalientesouza"><i class="fa fa-instagram"></i> Instagram</a>
+				</li>
 				
 				
 			</ul><!-- /.dl-submenu -->
@@ -142,6 +142,89 @@
 
 <div id="main" role="main">
   
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2019-02-05T00:00:00+00:00"><a href="http://mvsouza.com/event-sourcing-pt/">February 05, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="http://mvsouza.com/about/" title="About Matheus Valiente Souza">Matheus Valiente Souza</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://mvsouza.com/event-sourcing-pt/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://mvsouza.com/event-sourcing-pt/" rel="bookmark" title="Event Sourcing" itemprop="url">Event Sourcing</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I know that you might be tired of reading/hearing about it, and there is enough material on it out there. Still, there are many inconsistencies and misconceptions that might make you fuzzy. So I’ll show you what I see as being the basics and give you good references. If it makes you curious enough, soon I’ll be posting some samples.</p>
+
+<h3 id="concept">Concept</h3>
+
+<p>Erick Evans, on his book about DDD, raises an interesting point about the object’s life cycle and reconstituting stored objects when writing about factories:</p>
+
+<blockquote>
+  <p>At some point, most objects get stored in databases or transmitted through a network, and few current database technologies retain the object character of their contents. Most transmission methods <strong>flatten an object</strong> into an even more limited presentation. Therefore, retrieval requires a potentially complex process of reassembling the parts into a live object.<br />
+– <cite>Eric Evans</cite></p>
+</blockquote>
+
+<p>He is explaining the importance of factories (as ORMs) to recreate objects as they were before being persisted to the database. He argues that there is a great responsibility for these objects when they reconstitute the previous state of a disposed object as they once were.</p>
+
+<p>Although his idea of object’s life cycle could be considered already <strong>flatten</strong> on an event-driven perspective. So we could say <em>Most structural data models <strong>flatten objects</strong> into an even more limited presentation.</em> Due to understanding it better, we should discuss what it means. Consider reading Martin Fowlers<a href="https://martinfowler.com/articles/201701-event-driven.html">article</a> about the subject, where he explains his view about event source (ES):</p>
+
+<blockquote>
+  <p>The core idea of event sourcing is that whenever we make a change to the state of a system, we record that state change as an event, and we can confidently rebuild the system state by reprocessing the events at any time in the future. The event store becomes the principal source of truth, and the system state is purely derived from it. For programmers, the best example of this is a version control system. The log of all the commits is the event store and the working copy of the source tree is the system state.<br />
+– <cite>Martin Fowler</cite></p>
+</blockquote>
+
+<p>In addition to Erick`s view, ES expands the immutability, only covered by Value Objects on DDD, to whole application state, like a shadow. We only <strong>append</strong> facts to the repository. In spite of changing and deleting objects, we create new events that, when applied, remove or change them from the current state.</p>
+
+<h3 id="aplication">Aplication</h3>
+
+<p>As good as it sounds, of course, you might not be already pumped to use it. I’ve just described what it is, not why. Why should you care? After all, if you wanna fix something without nails, a hammer is useless.</p>
+
+<p>I’ve questioned myself that years ago. To answer I had to associate with other concepts first, like distributed computing, DDD, functional programming. Now, I have a view of my own, and I hope to help to build yours.</p>
+
+<p>One of its characteristics is traceability/auditability. Natively, you got the ability to trace all domain changes and easily understand how the application is behaving. Even more, you could easily add user information and audite user changes.</p>
+
+<p>Another important feature it provides is an easy reconciliation. So, when things go south between distributed systems, one can simply ask for what happened to others on a period then process all lost messages.</p>
+
+<p>For these reasons, ES should solve many problems like conflict management and desynchronization on microservice applications that shares business flows and IoT/embedded systems that might work off-line.</p>
+
+<p>There is plenty of real-world applications that would leverage this pattern, like:</p>
+
+<ul>
+  <li>Shipment tracker</li>
+  <li>IoT systems in general</li>
+  <li>Version control systems</li>
+  <li>Banking transactions</li>
+</ul>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>To conclude the pros/cons, I will let Greg Young, who has made the concept popular, anwser that:</p>
+
+<blockquote>
+  <h4 id="pros"><strong>Pros</strong></h4>
+  <p>Single Event Centric Model<br />
+Simplified/Better Testing<br />
+Conflict Management<br />
+#### <strong>Cons</strong><br />
+Harder to sell to an organization<br />
+Less known tools/technologies (though you can implement the Event Store in a RDBMS which kind of mitigates this)<br />
+Very difficult to migrate a legacy app to<br />
+–<cite><a href="http://codebetter.com/gregyoung/2010/02/20/why-use-event-sourcing/">Greg Young</a></cite> ##</p>
+</blockquote>
+
+<h3 id="next-steps">Next steps</h3>
+
+<p>I’ve been working with C# for a while now, so I will be posting some sample soon. But keep in mind that, as Vaught Venom wrote in his book <em>Implementing Domain Driven Design</em>, “ES is inherently functional in nature”, and its use on this paradigm would “potentially lead to more concise code that performs optimally”.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
 
 <article class="hentry">
   <header>
@@ -444,7 +527,7 @@ bower install</code></pre></div>
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2017 Matheus Valiente Souza. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
+    <span>&copy; 2019 Matheus Valiente Souza. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
   </footer>
 </div><!-- /.footer-wrapper -->
 
