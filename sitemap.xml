@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc></loc>
+        <loc>http://mvsouza.com</loc>
     </url>
     
     
     <url>
-        <loc>/404.html</loc>
+        <loc>http://mvsouza.com/404.html</loc>
     </url>
     
     <url>
-        <loc>/about/</loc>
+        <loc>http://mvsouza.com/about/</loc>
     </url>
     
     <url>
-        <loc>/feed.xml</loc>
+        <loc>http://mvsouza.com/feed.xml</loc>
     </url>
     
     <url>
-        <loc>/index.html</loc>
+        <loc>http://mvsouza.com/index.html</loc>
     </url>
     
     <url>
-        <loc>/inicio/</loc>
+        <loc>http://mvsouza.com/inicio/</loc>
     </url>
     
     <url>
-        <loc>/marcacoes/</loc>
+        <loc>http://mvsouza.com/marcacoes/</loc>
     </url>
     
     <url>
-        <loc>/postagens/</loc>
+        <loc>http://mvsouza.com/postagens/</loc>
     </url>
     
     <url>
-        <loc>/posts/</loc>
+        <loc>http://mvsouza.com/posts/</loc>
     </url>
     
     <url>
-        <loc>/sitemap.xml</loc>
+        <loc>http://mvsouza.com/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>/tags/</loc>
+        <loc>http://mvsouza.com/tags/</loc>
     </url>
     
     <url>
-        <loc>/theme-setup/</loc>
+        <loc>http://mvsouza.com/theme-setup/</loc>
     </url>
     
 
     
     <url>
-        <loc>/event-sourcing-pt/</loc>
+        <loc>http://mvsouza.com/event-sourcing-pt/</loc>
     </url>
     
     <url>
-        <loc>/event-sourcing-en/</loc>
+        <loc>http://mvsouza.com/event-sourcing-en/</loc>
     </url>
     
     <url>
-        <loc>/resolving-a-geo-location-to-a-city/</loc>
+        <loc>http://mvsouza.com/resolving-a-geo-location-to-a-city/</loc>
     </url>
     
     <url>
-        <loc>/encontrando-a-geo-localizacao-de-uma-cidade/</loc>
+        <loc>http://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade/</loc>
     </url>
     
     <url>
-        <loc>/yeoman-jumpstart/</loc>
+        <loc>http://mvsouza.com/yeoman-jumpstart/</loc>
     </url>
     
     <url>
-        <loc>/comecando-com-yeoman/</loc>
+        <loc>http://mvsouza.com/comecando-com-yeoman/</loc>
     </url>
     
 </urlset>
