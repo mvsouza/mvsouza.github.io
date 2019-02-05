@@ -27,7 +27,6 @@ t:
       url: "/"
     about:
       name: "About"
-    #  url: "/about/"
     translate:
       name: "Translations"
     posts:
@@ -44,7 +43,6 @@ t:
       url: "/inicio/"
     about:
       name: "Sobre"
-    #  url: "/sobre/"
     translate:
       name: "Tradução"
     posts:
@@ -126,4 +124,4 @@ kramdown:
     coderay_css: class
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules","bower_components", "*.ps1"]
+exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules","bower_components", "*.less","*.ps1","*.sh", "*.yml"]
