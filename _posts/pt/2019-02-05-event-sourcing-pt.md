@@ -56,11 +56,12 @@ To conclude the pros/cons, I will let Greg Young, who has made the concept popul
 >Single Event Centric Model  
 >Simplified/Better Testing  
 >Conflict Management  
+>
 >#### **Cons**  
 >Harder to sell to an organization  
 >Less known tools/technologies (though you can implement the Event Store in a RDBMS which kind of mitigates this)  
 >Very difficult to migrate a legacy app to  
->--<cite>[Greg Young](http://codebetter.com/gregyoung/2010/02/20/why-use-event-sourcing/)</cite> ##  
+>--<cite>[Greg Young](http://codebetter.com/gregyoung/2010/02/20/why-use-event-sourcing/)</cite>   
   
 ### Next steps  
   
