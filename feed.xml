@@ -2,27 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">mvsouza</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://mvsouza.com/feed.xml" />
-<link rel="alternate" type="text/html" href="http://mvsouza.com" />
+<link rel="self" type="application/atom+xml" href="https://mvsouza.com/feed.xml" />
+<link rel="alternate" type="text/html" href="https://mvsouza.com" />
 <updated>2019-02-06T20:06:06+00:00</updated>
-<id>http://mvsouza.com/</id>
+<id>https://mvsouza.com/</id>
 <author>
   <name>Matheus Valiente Souza</name>
-  <uri>http://mvsouza.com/</uri>
+  <uri>https://mvsouza.com/</uri>
   <email>mvs@mvsouza.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Event Sourcing]]></title>
- <link rel="alternate" type="text/html" href="http://mvsouza.com/event-sourcing-pt/" />
-  <id>http://mvsouza.com/event-sourcing-pt</id>
+ <link rel="alternate" type="text/html" href="https://mvsouza.com/event-sourcing-pt/" />
+  <id>https://mvsouza.com/event-sourcing-pt</id>
   <updated>2019-02-05 10:32:22 +0000T00:00:00-00:00</updated>
   <published>2019-02-05T00:00:00+00:00</published>
   
   <author>
     <name>Matheus Valiente Souza</name>
-    <uri>http://mvsouza.com</uri>
+    <uri>https://mvsouza.com</uri>
     <email>mvs@mvsouza.com</email>
   </author>
   <content type="html">&lt;p&gt;I know that you might be tired of reading/hearing about it, and there is enough material on it out there. Still, there are many inconsistencies and misconceptions that might make you fuzzy. So I’ll show you what I see as being the basics and give you good references. If it makes you curious enough, soon I’ll be posting some samples.&lt;/p&gt;
@@ -89,20 +89,20 @@ Very difficult to migrate a legacy app to&lt;br /&gt;
 
 &lt;p&gt;I’ve been working with C# for a while now, so I will be posting some sample soon. But keep in mind that, as Vaught Venom wrote in his book &lt;em&gt;Implementing Domain Driven Design&lt;/em&gt;, “ES is inherently functional in nature”, and its use on this paradigm would “potentially lead to more concise code that performs optimally”.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://mvsouza.com/event-sourcing-pt/&quot;&gt;Event Sourcing&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;http://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on February 05, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;https://mvsouza.com/event-sourcing-pt/&quot;&gt;Event Sourcing&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;https://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on February 05, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Event Sourcing]]></title>
- <link rel="alternate" type="text/html" href="http://mvsouza.com/event-sourcing-en/" />
-  <id>http://mvsouza.com/event-sourcing-en</id>
+ <link rel="alternate" type="text/html" href="https://mvsouza.com/event-sourcing-en/" />
+  <id>https://mvsouza.com/event-sourcing-en</id>
   <updated>2019-02-05 10:32:02 +0000T00:00:00-00:00</updated>
   <published>2019-02-05T00:00:00+00:00</published>
   
   <author>
     <name>Matheus Valiente Souza</name>
-    <uri>http://mvsouza.com</uri>
+    <uri>https://mvsouza.com</uri>
     <email>mvs@mvsouza.com</email>
   </author>
   <content type="html">&lt;p&gt;I know that you might be tired of reading/hearing about it, and there is enough material on it out there. Still, there are many inconsistencies and misconceptions that might make you fuzzy. So I’ll show you what I see as being the basics and give you good references. If it makes you curious enough, soon I’ll be posting some samples.&lt;/p&gt;
@@ -169,20 +169,20 @@ Very difficult to migrate a legacy app to&lt;br /&gt;
 
 &lt;p&gt;I’ve been working with C# for a while now, so I will be posting some sample soon. But keep in mind that, as Vaught Venom wrote in his book &lt;em&gt;Implementing Domain Driven Design&lt;/em&gt;, “ES is inherently functional in nature”, and its use on this paradigm would “potentially lead to more concise code that performs optimally”.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://mvsouza.com/event-sourcing-en/&quot;&gt;Event Sourcing&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;http://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on February 05, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;https://mvsouza.com/event-sourcing-en/&quot;&gt;Event Sourcing&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;https://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on February 05, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Resolving a geo-location to a city]]></title>
- <link rel="alternate" type="text/html" href="http://mvsouza.com/resolving-a-geo-location-to-a-city/" />
-  <id>http://mvsouza.com/resolving-a-geo-location-to-a-city</id>
+ <link rel="alternate" type="text/html" href="https://mvsouza.com/resolving-a-geo-location-to-a-city/" />
+  <id>https://mvsouza.com/resolving-a-geo-location-to-a-city</id>
   <updated>2014-12-12 17:04:28 -0200T00:00:00-00:00</updated>
   <published>2014-12-05T00:00:00+00:00</published>
   
   <author>
     <name>Matheus Valiente Souza</name>
-    <uri>http://mvsouza.com</uri>
+    <uri>https://mvsouza.com</uri>
     <email>mvs@mvsouza.com</email>
   </author>
   <content type="html">&lt;p&gt;Last week I was looking a way to find out the city from a latitude and longitude.
@@ -325,20 +325,20 @@ but the analysis of the results were quite disapoiting
 In order to mitigate it, the next step would be try the Twofishes solution, which opencage uses, to evaluate it as an alternative.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://mvsouza.com/resolving-a-geo-location-to-a-city/&quot;&gt;Resolving a geo-location to a city&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;http://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;https://mvsouza.com/resolving-a-geo-location-to-a-city/&quot;&gt;Resolving a geo-location to a city&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;https://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Encontrando geo-localização de uma cidade]]></title>
- <link rel="alternate" type="text/html" href="http://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade/" />
-  <id>http://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade</id>
+ <link rel="alternate" type="text/html" href="https://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade/" />
+  <id>https://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade</id>
   <updated>2014-12-12 17:04:28 -0200T00:00:00-00:00</updated>
   <published>2014-12-05T00:00:00+00:00</published>
   
   <author>
     <name>Matheus Valiente Souza</name>
-    <uri>http://mvsouza.com</uri>
+    <uri>https://mvsouza.com</uri>
     <email>mvs@mvsouza.com</email>
   </author>
   <content type="html">&lt;p&gt;Semana passada eu estava procurando uma forma de encontrar a cidade a partir de uma latitude e longitude.
@@ -480,20 +480,20 @@ but the analysis of the results were quite disapoiting
 &lt;p&gt;A API escolhida esta rodando em versão beta, então considere esse risco. 
 Para mitigar esse risco, o próximo passo seria testar a solução Twofishes, que opencage utiliza, para avalia-la como alternativa.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade/&quot;&gt;Encontrando geo-localização de uma cidade&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;http://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;https://mvsouza.com/encontrando-a-geo-localizacao-de-uma-cidade/&quot;&gt;Encontrando geo-localização de uma cidade&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;https://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Yeoman jumpstart]]></title>
- <link rel="alternate" type="text/html" href="http://mvsouza.com/yeoman-jumpstart/" />
-  <id>http://mvsouza.com/yeoman-jumpstart</id>
+ <link rel="alternate" type="text/html" href="https://mvsouza.com/yeoman-jumpstart/" />
+  <id>https://mvsouza.com/yeoman-jumpstart</id>
   <updated>2014-11-08 23:13:01 -0200T00:00:00-00:00</updated>
   <published>2014-11-08T00:00:00+00:00</published>
   
   <author>
     <name>Matheus Valiente Souza</name>
-    <uri>http://mvsouza.com</uri>
+    <uri>https://mvsouza.com</uri>
     <email>mvs@mvsouza.com</email>
   </author>
   <content type="html">&lt;p&gt;In this jump start I will show how to create a Angular directive using Yeoman.&lt;/p&gt;
@@ -503,7 +503,7 @@ Para mitigar esse risco, o próximo passo seria testar a solução Twofishes, qu
 &lt;h2 id=&quot;whata-hell&quot;&gt;What’a hell?&lt;/h2&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
-	&lt;img style=&quot;height:&quot; src=&quot;http://mvsouza.com/images/yeoman-005.ef68.png&quot; /&gt;
+	&lt;img style=&quot;height:&quot; src=&quot;https://mvsouza.com/images/yeoman-005.ef68.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;You may not know about the existence of Yeoman, as I didn’t. So in that case you are asking yourself “What the F$%# is this?”.
@@ -514,12 +514,12 @@ Yeoman is scaffolding tool that helps developers to start up their projects, esp
 &lt;p&gt;Actually, this is pretty neat, because you can easily set up a solution with a whole structure, without having to copy code from other projects or write the same jibber jabber.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
-&lt;img alt=&quot;Copy ain&#39;t funny&quot; src=&quot;http://mvsouza.com/images/Copying_test-331x285.jpg&quot; /&gt;
+&lt;img alt=&quot;Copy ain&#39;t funny&quot; src=&quot;https://mvsouza.com/images/Copying_test-331x285.jpg&quot; /&gt;
 &lt;/p&gt;
 &lt;p&gt;Therefore, it increases your productivity and, if use it the right way, software quality, by adding and configure tools that you would may leave behind, because they “delay” your “progress”.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
-	&lt;video style=&quot;width: 275px;&quot; alt=&quot;Ain&#39;t got time for that&quot; src=&quot;http://mvsouza.com/images/aintgottimeforthat.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
+	&lt;video style=&quot;width: 275px;&quot; alt=&quot;Ain&#39;t got time for that&quot; src=&quot;https://mvsouza.com/images/aintgottimeforthat.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
    Your browser does not implement html5 video. 
 	&lt;/video&gt;
 &lt;/p&gt;
@@ -537,14 +537,14 @@ Yeoman is scaffolding tool that helps developers to start up their projects, esp
 &lt;p&gt;We need some stuff fist:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Install &lt;a href=&quot;https://www.npmjs.org/&quot;&gt;NPM&lt;/a&gt;, &lt;a href=&quot;http://nodejs.org/&quot;&gt;nodejs&lt;/a&gt; package manager&lt;/li&gt;
+  &lt;li&gt;Install &lt;a href=&quot;https://www.npmjs.org/&quot;&gt;NPM&lt;/a&gt;, &lt;a href=&quot;https://nodejs.org/&quot;&gt;nodejs&lt;/a&gt; package manager&lt;/li&gt;
   &lt;li&gt;And them Yeoman itself, running the following command:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm install -g yo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p alt=&quot;Ain&#39;t got time for that&quot; style=&quot;text-align:center;&quot;&gt;
-	&lt;video style=&quot;width: 275px;&quot; src=&quot;http://mvsouza.com/images/lonely_island_michael_bolton_jack_sparrow_back_to_.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
+	&lt;video style=&quot;width: 275px;&quot; src=&quot;https://mvsouza.com/images/lonely_island_michael_bolton_jack_sparrow_back_to_.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
    Your browser does not implement html5 video. 
 	&lt;/video&gt;
 &lt;/p&gt;
@@ -596,20 +596,20 @@ bower install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;gulp &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://mvsouza.com/yeoman-jumpstart/&quot;&gt;Yeoman jumpstart&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;http://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on November 08, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;https://mvsouza.com/yeoman-jumpstart/&quot;&gt;Yeoman jumpstart&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;https://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on November 08, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Começando com Yeoman]]></title>
- <link rel="alternate" type="text/html" href="http://mvsouza.com/comecando-com-yeoman/" />
-  <id>http://mvsouza.com/comecando-com-yeoman</id>
+ <link rel="alternate" type="text/html" href="https://mvsouza.com/comecando-com-yeoman/" />
+  <id>https://mvsouza.com/comecando-com-yeoman</id>
   <updated>2014-11-08 23:13:01 -0200T00:00:00-00:00</updated>
   <published>2014-11-08T00:00:00+00:00</published>
   
   <author>
     <name>Matheus Valiente Souza</name>
-    <uri>http://mvsouza.com</uri>
+    <uri>https://mvsouza.com</uri>
     <email>mvs@mvsouza.com</email>
   </author>
   <content type="html">&lt;p&gt;Neste jump start vou mostrar como criar diretivas do Angular usando Yeoman.&lt;/p&gt;
@@ -619,7 +619,7 @@ bower install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;whata-hell&quot;&gt;What’a hell?&lt;/h2&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
-	&lt;img style=&quot;height:&quot; src=&quot;http://mvsouza.com/images/yeoman-005.ef68.png&quot; /&gt;
+	&lt;img style=&quot;height:&quot; src=&quot;https://mvsouza.com/images/yeoman-005.ef68.png&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Você pode não saber sobre a existência do Yoeman, como eu não conhecia. Nesse caso você deve estar se perguntando “Que m#$%# é essa?”.
@@ -630,13 +630,13 @@ Yeoman é uma ferramente de scaffolding, que ajuda a desenvolvedores a começar 
 &lt;p&gt;Na realidade é uma solução bem elegante, pois você pode facilmente configurar um projeto com toda uma estrutura, sem ter que ficar copiando código de outros projetos ou reescrever a mesma balela de sempre.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
-	&lt;img alt=&quot;Copy ain&#39;t funny&quot; src=&quot;http://mvsouza.com/images/Copying_test-331x285.jpg&quot; /&gt;
+	&lt;img alt=&quot;Copy ain&#39;t funny&quot; src=&quot;https://mvsouza.com/images/Copying_test-331x285.jpg&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Dessa forma aumenta a sua produtividade e, se usada da forma correta, a qualidade do software ao adicionar ferramentas que você deixaria para traz por “atrasar” o “progresso” do projeto.&lt;/p&gt;
 
 &lt;p style=&quot;text-align:center;&quot;&gt;
-	&lt;video style=&quot;width: 275px;&quot; alt=&quot;Ain&#39;t got time for that&quot; src=&quot;http://mvsouza.com/images/aintgottimeforthat.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
+	&lt;video style=&quot;width: 275px;&quot; alt=&quot;Ain&#39;t got time for that&quot; src=&quot;https://mvsouza.com/images/aintgottimeforthat.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
 		Seu browser não implementa html5 video. 
 	&lt;/video&gt;
 &lt;/p&gt;
@@ -654,14 +654,14 @@ Yeoman é uma ferramente de scaffolding, que ajuda a desenvolvedores a começar 
 &lt;p&gt;Precisamos de algumas coisas primeiro:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Instale &lt;a href=&quot;https://www.npmjs.org/&quot;&gt;NPM&lt;/a&gt;, &lt;a href=&quot;http://nodejs.org/&quot;&gt;nodejs&lt;/a&gt; package manager;&lt;/li&gt;
+  &lt;li&gt;Instale &lt;a href=&quot;https://www.npmjs.org/&quot;&gt;NPM&lt;/a&gt;, &lt;a href=&quot;https://nodejs.org/&quot;&gt;nodejs&lt;/a&gt; package manager;&lt;/li&gt;
   &lt;li&gt;E depois o próprio Yeoman.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm install -g yo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p alt=&quot;Ain&#39;t got time for that&quot; style=&quot;text-align:center;&quot;&gt;
-	&lt;video style=&quot;width: 275px;&quot; src=&quot;http://mvsouza.com/images/lonely_island_michael_bolton_jack_sparrow_back_to_.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
+	&lt;video style=&quot;width: 275px;&quot; src=&quot;https://mvsouza.com/images/lonely_island_michael_bolton_jack_sparrow_back_to_.webm&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot;&gt; 
 		Seu browser não implementa html5 video. 
 	&lt;/video&gt;
 &lt;/p&gt;
@@ -713,7 +713,7 @@ bower install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;gulp &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://mvsouza.com/comecando-com-yeoman/&quot;&gt;Começando com Yeoman&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;http://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on November 08, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;https://mvsouza.com/comecando-com-yeoman/&quot;&gt;Começando com Yeoman&lt;/a&gt; was originally published by Matheus Valiente Souza at &lt;a href=&quot;https://mvsouza.com&quot;&gt;mvsouza&lt;/a&gt; on November 08, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
